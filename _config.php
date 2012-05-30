@@ -21,3 +21,11 @@ DocumentationService::set_ignored_files(array(
 	'.', '..', '.DS_Store',
 	'.svn', '.git', 'assets', 'themes', '_images', '_resources'
 ));
+
+# Replace Help section in CMS?
+if (!defined('DOCSVIEWER_REPLACE_HELP')) {
+	define('DOCSVIEWER_REPLACE_HELP', false);
+}
+if (DOCSVIEWER_REPLACE_HELP) {
+	LeftAndMain::$help_link = '/' . trim(DOCSVIEWER_URL, '/');
+}
