@@ -22,6 +22,16 @@ DocumentationService::set_ignored_files(array(
 	'.svn', '.git', 'assets', 'themes', '_images', '_resources'
 ));
 
+// TODO: Replace these knobs with config items
+// default location for documentation. If you want this under a custom url
+// define your own value for DOCSVIEWER_URL.
+if (!defined('DOCSVIEWER_URL')) {
+	define('DOCSVIEWER_URL', 'dev/docs');
+}
+Director::addRules(100, array(
+	DOCSVIEWER_URL => 'DocumentationViewer'
+));
+
 # Replace Help section in CMS?
 if (!defined('DOCSVIEWER_REPLACE_HELP')) {
 	define('DOCSVIEWER_REPLACE_HELP', false);
